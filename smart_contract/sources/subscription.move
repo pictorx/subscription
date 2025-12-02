@@ -98,6 +98,10 @@ public fun new_payment<T>(user: &User, sub: &Subscription<T>, exp: u64, _ctx: &m
 
 }
 
+public fun payed(receipt: payment_kit::PaymentReceipt, payment: &mut Payment) {
+    payment.receipt = option::some(receipt);
+}
+
 // pay
 // For Move coding conventions, see
 // https://docs.sui.io/concepts/sui-move-concepts/conventions
